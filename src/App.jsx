@@ -15,7 +15,7 @@ function App() {
       setData(ans);
       setSelected(ans.slice(0,10));
     } catch (error) {
-      console.log(error)
+      alert('failed to fetch data')
     }
   }
 
@@ -79,24 +79,26 @@ function App() {
     <>
       <h1 className='heading'>Employee Data Table</h1>
       <table className='table'>
-        <tr key={'title'}>
+        <thead key={'title'}>
           <th className='first'>ID</th>
           <th className='second'>Name</th>
           <th className='third'>Email</th>
           <th className='fourth'>Role</th>
-        </tr>
-      {selected.map((item)=>{
-        return(
-          <>
-            <tr key={item.id}>
-              <th className='content1'>{item.id}</th>
-              <th className='content2'>{item.name}</th>
-              <th className='content3'>{item.email}</th>
-              <th className='content4'>{item.role}</th>
-            </tr>
-          </>
-        )
-      })}
+        </thead>
+        <tbody>
+          {selected.map((item)=>{
+            return(
+              <>
+                <tr key={item.id}>
+                  <th className='content1'>{item.id}</th>
+                  <th className='content2'>{item.name}</th>
+                  <th className='content3'>{item.email}</th>
+                  <th className='content4'>{item.role}</th>
+                </tr>
+              </>
+            )
+          })}
+        </tbody>
       </table>
       <div className='button'>
         <button onClick={handlePrevious} disabled={isDisabled}>Previous</button>
