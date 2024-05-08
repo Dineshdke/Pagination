@@ -1,0 +1,76 @@
+.first{
+  width: 10vw;
+  height: 2rem;
+  background-color:#26C281;
+  color: white;
+  padding-left: 1rem;
+}
+
+.second{
+  width: 35vw;
+  background-color:#26C281;
+  color: white;
+  padding-left: 1rem;
+
+}
+
+.third{
+  width: 35vw;
+  background-color:#26C281;
+  color: white;
+  padding-left: 1rem;
+
+}
+
+.fourth{
+  width: 20vw;
+  background-color:#26C281;
+  color: white;
+  padding-left: 1rem;
+
+}
+
+.content1{
+  width: 10vw;
+  height: 2rem;
+  padding-left: 1rem;
+
+}
+
+.content2{
+  width: 35vw;
+  padding-left: 1rem;
+
+}
+
+.content3{
+  width: 35vw;
+  padding-left: 1rem;
+  padding-left: 1rem;
+
+}
+
+.content4{
+  width: 20vw;
+  padding-left: 1rem;
+
+}
+
+.table{
+  text-align: left;
+
+}
+
+.heading{
+  text-align: center;
+}
+
+.button{
+  text-align: center;
+  margin: 2rem; 
+  
+}
+
+.button button{
+  margin: 1rem;
+}
