@@ -5,8 +5,6 @@ function App() {
   const [data, setData] = useState([]);
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(1);
-  // const [isDisabled, setisDisabled] = useState(true);
-  // const [isDisabledNext, setisDisabledNext] = useState(false);
 
   const generateData = async()=> {
     try {
@@ -18,51 +16,6 @@ function App() {
       alert('failed to fetch data')
     }
   }
-
-  // const handlePrevious = () => {
-  //   let max=0;
-  //   selected.map((item)=>{
-  //     if(item.id>max){
-  //       max=Number(item.id);
-  //     } 
-  //   });
-  //   setPage((num)=>setPage(num-1));
-  //   if(max-10 == 0){
-  //     setSelected(data.slice(0,10));
-  //     // setisDisabled(true);
-  //     // setisDisabledNext(false);
-  //   }
-  //   else if(max==data.length){
-  //     max = (Math.floor(max/10))*10;
-  //     setSelected(data.slice(max-10,max));
-  //     // setisDisabled(false);
-  //     // setisDisabledNext(false);
-
-  //   }
-  //   else{
-  //     setSelected(data.slice(max-20,max-10));
-  //     // setisDisabled(false);
-  //     // setisDisabledNext(false);
-  //   }
-  // }
-
-  // const handleNext = () => {
-  //   let max=0;
-  //   selected.map((item)=>{
-  //     if(item.id>max){
-  //       max=Number(item.id);
-  //     } 
-  //   });
-  //   setPage((num)=>setPage(num+1));
-  //   if(max+10 >data.length){
-  //     setSelected(data.slice(max));
-  //     // setisDisabledNext(true)
-  //   }
-  //   else{
-  //     setSelected(data.slice(max,max+10));
-  //     // setisDisabled(false);
-  //   }
-  // }
 
   const handleNext = () =>{
     setSelected(data.slice((page*10),((page+1)*10)));
