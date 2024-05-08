@@ -5,6 +5,8 @@ function App() {
   const [data, setData] = useState([]);
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(1);
+  const [isDisabled, setisDisabled] = useState(true);
+  const [isDisabledNext, setisDisabledNext] = useState(false);
 
   const generateData = async()=> {
     try {
@@ -27,14 +29,20 @@ function App() {
     setPage((num)=>setPage(num-1));
     if(max-10 == 0){
       setSelected(data.slice(0,10));
+      setisDisabled(true);
+      setisDisabledNext(false);
     }
     else if(max==data.length){
       max = (Math.floor(max/10))*10;
-      console.log(max)
-      setSelected(data.slice(max-10,max))
+      setSelected(data.slice(max-10,max));
+      setisDisabled(false);
+      setisDisabledNext(false);
+
     }
     else{
       setSelected(data.slice(max-20,max-10));
+      setisDisabled(false);
+      setisDisabledNext(false);
     }
   }
 
@@ -48,9 +56,11 @@ function App() {
     setPage((num)=>setPage(num+1));
     if(max+10 >data.length){
       setSelected(data.slice(max));
+      setisDisabledNext(true)
     }
     else{
       setSelected(data.slice(max,max+10));
+      setisDisabled(false);
     }
   }
 
@@ -59,8 +69,9 @@ function App() {
   },[])
 
   useEffect(()=>{
-    if(page==0){
-      setPage(1)
+    if(page==0 || page==1){
+      setPage(1);
+      setisDisabled(true);
     }
   },[page])
 
@@ -88,9 +99,9 @@ function App() {
       })}
       </table>
       <div className='button'>
-        <button onClick={handlePrevious}>Previous</button>
+        <button onClick={handlePrevious} disabled={isDisabled}>Previous</button>
         <span>{page}</span>
-        <button onClick={handleNext}>Next</button>
+        <button onClick={handleNext} disabled={isDisabledNext}>Next</button>
       </div>
     </>
   )
